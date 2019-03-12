@@ -1,2 +1,2 @@
 # Problems
-1. Search Insert Position
+1. Easy: Search Insert Position
