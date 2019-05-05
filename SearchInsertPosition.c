@@ -1,3 +1,5 @@
+#include "int.h"
+
 int searchInsert(int* nums, int numsSize, int target)
 {
     int i, fIdx = 0;
