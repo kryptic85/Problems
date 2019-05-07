@@ -189,3 +189,51 @@ struct ListNode* mergeTwoListsWithRecursion(struct ListNode* pHead1, struct List
         return pHead2;
     }
 }
+
+
+// Given sorted list, remove duplicates
+struct ListNode* deleteDuplicates(struct ListNode* head)
+{
+    struct ListNode *pCurr = NULL, *pNext = NULL;
+
+    if (!head)
+    {
+        return NULL;
+    }
+
+    if (head && !head->next)
+    {
+        return head;
+    }
+
+    pCurr = head;
+    pNext = (pCurr) ? pCurr->next : NULL;
+
+    while (pNext)
+    {
+        if (pCurr->val == pNext->val)
+        {
+            if (pCurr == head)
+            {
+                head = pNext;
+                pCurr->next = NULL;
+                free(pCurr);
+
+                pCurr = head;
+            }
+            else
+            {
+                pCurr->next = pNext->next;
+                free(pNext);
+                pNext = NULL;
+            }
+        }
+        else
+        {
+            pCurr = pCurr->next;
+        }
+        pNext = (pCurr) ? pCurr->next : NULL;
+    }
+
+    return head;
+}
